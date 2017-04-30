@@ -1,0 +1,1 @@
+export const LOCATION_CITY_NAME = 'LOCATION_CITY_NAME'

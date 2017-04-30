@@ -1,0 +1,70 @@
+@mixin flex {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: flex;
+  @content;
+}
+
+@mixin align-items($value) {
+  -webkit-align-items: $value;
+  -moz-align-items: $value;
+  align-items: $value;
+}
+
+@mixin justify-content($value) {
+  -webkit-justify-content: $value;
+  -moz-justify-content: $value;
+  justify-content: $value;
+}
+
+.navbar {
+
+  ul {
+    @include flex {
+      @include justify-content(center);
+    }
+    margin-top: 2em;
+    position: relative;
+    font: {
+      size: 1.25em;
+      weight: 500;
+    }
+
+    &:first-child {
+      @include flex;
+      color: #2d2c2c;
+
+      img {
+        width: 3em;
+        height: 3em;
+        position: absolute;
+        left: 38%;
+        top: -.75em;
+        color: #fff;
+      }
+    }
+
+    li {
+      list-style: none;
+      padding: 0 1rem;
+
+      a {
+        color: #fff;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+          color: #b9aeae
+        }
+
+        &:active {
+          color: #fff;
+        }
+      }
+    }
+
+    .city {
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,133 @@
+@mixin box-shadow($value) {
+  -webkit-box-shadow: $value;
+  -moz-box-shadow: $value;
+  box-shadow: $value;
+}
+
+@mixin transform($property) {
+  -webkit-transform: $property;
+  -moz-transform: $property;
+  transform: $property;
+}
+
+@mixin translate3d($val1, $val2, $val3) {
+  @include transform(translate3d($val1, $val2, $val3));
+}
+
+@mixin flex {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: flex;
+  @content;
+}
+
+@mixin align-items($value) {
+  -webkit-align-items: $value;
+  -moz-align-items: $value;
+  align-items: $value;
+}
+
+@mixin justify-content($value) {
+  -webkit-justify-content: $value;
+  -moz-justify-content: $value;
+  justify-content: $value;
+}
+
+.anchor {
+  @include flex {
+    @include justify-content(center);
+  }
+  margin: {
+    top: 4em;
+    bottom: 1em;
+  }
+
+  a {
+    margin: 0 1em;
+    padding: 0 1em;
+    color: #2d2c2c;
+    opacity: .4;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+      opacity: .8;
+    }
+  }
+}
+
+.current {
+  width: 40%;
+  height: 20em;
+  margin: 2em auto;
+  padding: 1.5em 2.5em;
+  color: #fff;
+
+  &:target {
+    @include box-shadow(0 3px 20px rgba(0, 0, 0, .2));
+    @include translate3d(0, -2px, 0);
+  }
+
+  .current-top {
+    overflow: hidden;
+
+    span + span {
+      float: right;
+    }
+  }
+
+  .current-center {
+    .temp {
+      @include flex {
+        @include align-items(center);
+        @include justify-content(center);
+      }
+      margin: {
+        top: 4em;
+        bottom: 1em;
+      }
+
+      span {
+        display: inline-block;
+        font: {
+          size: 6em;
+          weight: 200;
+        }
+      }
+
+      img {
+        width: 5em;
+        height: 5em;
+      }
+    }
+
+    .refresh {
+      margin-bottom: 2.5em;
+      text-align: center;
+
+      span {
+        padding: 0 .25em;
+      }
+
+      #refresh {
+        cursor: pointer;
+        color: #2d2c2c;
+        opacity: .4;
+
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+  }
+
+  .current-bottom {
+    text-align: center;
+
+    span {
+      padding: 0 1em;
+    }
+  }
+
+}
+
