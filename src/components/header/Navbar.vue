@@ -3,7 +3,7 @@
     <ul>
       <li>
         <!--<img src="../../../src/assets/weather-images/weather_icon/100.png" alt="">-->
-        <span class="city" @click="getCityName()">
+        <span class="city">
           <i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
           <span>{{ cityName }}</span>
         </span>
@@ -24,33 +24,24 @@
 
     data () {
       return {
-        //cityName: ''
+        cityName: this.$store.state.location.cityName
       }
     },
 
     mounted () {
-      // this.getInitCityName()
-    },
-
-    computed: {
-      cityName () {
-        return this.$store.state.location.cityName
-      }
+      this.getCityName()
     },
 
     methods: {
       getCityName () {
-        return this.$store.dispatch('getCityName')
-      },
-
-      getInitCityName () {
         this.axios.get(Params.params.LOCATION_CITY_URL)
-        .then(response => {
-          this.cityName = response.data.city
-        })
-        .catch(error => {
-          console.log(error)
-        })
+          .then(response => {
+            this.cityName = response.data.city
+            return this.$store.dispatch('getCityName', response.data.city)
+          })
+          .catch(error => {
+            console.log(error)
+          })
       }
     }
   }
