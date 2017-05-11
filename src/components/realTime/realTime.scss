@@ -1,47 +1,40 @@
-@import '../../assets/scss/mixin.scss';
+@import '../../assets/scss/_mixin.scss';
+@import '../../assets/scss/_variable.scss';
 
 .realtime {
   width: 40%;
-  height: 20em;
+  height: 16em;
   margin: 2em auto;
   padding: 1.5em 2.5em;
-  color: #fff;
+  color: $default-font-color;
   @include flex {
     @include justify-content(center);
   }
 
   &:hover {
-    @include box-shadow(0 3px 20px rgba(0, 0, 0, .2));
+    @include box-shadow(0 3px 20px $box-shadow-color);
     @include translate3d(0, -2px, 0);
   }
 
   .time {
-    width: 10%;
-    height: auto;
-    margin: 0 .5em;
-    padding-left: .5em;
-    border-left: 1px solid #fff;
+    @include flex {
+      @include flex-direction(column);
+      @include justify-content(space-between);
+      @include align-items(center);
+    }
+    border-left: 1px solid $border-left-color;
 
-    text-align: center;
+    span:nth-child(2) {
+      @include flex {
+        @include flex-direction(column);
+        @include align-items(center);
+      }
+      padding: 0 .25em;
+    }
 
     img {
       width: 4em;
       height: 4em;
-    }
-
-    span {
-      display: block;
-      &:nth-child(1) {
-        margin-bottom: 1em;
-      }
-
-      &:nth-child(2) {
-        margin: {
-          top: 2.5em;
-          bottom: 2.5em;
-        }
-        padding: .25em 0;
-      }
     }
   }
 }

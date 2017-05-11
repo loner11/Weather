@@ -2,7 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import WeatherNow from '../components/weatherNow/WeatherNow.vue'
-import WeatherForecast from '../components/weatherForecast/weatherForecast.vue'
+import WeatherForecast from '../components/weatherForecast/WeatherForecast.vue'
+import WeatherCity from '../components/weatherCity/WeatherCity.vue'
 import RealTime from '../components/realTime/RealTime.vue'
 import LifeIndex from '../components/LifeIndex/LifeIndex.vue'
 
@@ -36,6 +37,11 @@ export default new VueRouter({
       path: '/forecast',
       name: 'forecast',
       component: WeatherForecast
+    },
+    {
+      path: '/city',
+      name: 'city',
+      component: WeatherCity
     }
   ]
 })

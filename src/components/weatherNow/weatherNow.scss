@@ -1,4 +1,5 @@
-@import '../../assets/scss/mixin.scss';
+@import '../../assets/scss/_mixin.scss';
+@import '../../assets/scss/_variable.scss';
 
 .anchor {
   @include flex {
@@ -12,7 +13,7 @@
   a {
     margin: 0 1em;
     padding: 0 1em;
-    color: #2d2c2c;
+    color: $anchor-font-color;
     opacity: .4;
     text-decoration: none;
 
@@ -28,18 +29,16 @@
   height: 20em;
   margin: 2em auto;
   padding: 1.5em 2.5em;
-  color: #fff;
+  color: $default-font-color;
 
   &:hover {
-    @include box-shadow(0 3px 20px rgba(0, 0, 0, .2));
+    @include box-shadow(0 3px 20px $box-shadow-color);
     @include translate3d(0, -2px, 0);
   }
 
   .current-top {
-    overflow: hidden;
-
-    span + span {
-      float: right;
+    @include flex {
+      @include justify-content(space-around);
     }
   }
 
@@ -69,16 +68,27 @@
     }
 
     .refresh {
+      @include flex {
+        @include justify-content(center);
+        @include align-items(center);
+      }
       margin-bottom: 2.5em;
-      text-align: center;
+
+      @include smallMedia {
+          @include justify-content(space-between);
+      }
 
       span {
         padding: 0 .25em;
+
+        @include smallMedia {
+          padding: 0;
+        }
       }
 
       #refresh {
         cursor: pointer;
-        color: #2d2c2c;
+        color: $refresh-icon-color;
         opacity: .4;
 
         &:hover {
@@ -89,12 +99,16 @@
   }
 
   .current-bottom {
-    text-align: center;
+    @include flex {
+      @include justify-content(space-around);
+      @include align-items(center);
+    }
 
-    span {
-      padding: 0 1em;
+    span:nth-child(1) {
+      @include ordinaryMedia {
+        display: none;
+      }
     }
   }
-
 }
 

@@ -52,7 +52,6 @@
           wind: ''
         },
         imageSrc: '../../../src/assets/weather-images/weather_icon/',
-        city: '',
         param: 'now'
       }
     },

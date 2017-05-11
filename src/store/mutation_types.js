@@ -1,1 +1,2 @@
 export const LOCATION_CITY_NAME = 'LOCATION_CITY_NAME'
+export const WEATHER_DATA = 'WEATHER_DATA'

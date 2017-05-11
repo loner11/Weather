@@ -2,7 +2,6 @@
   <nav class="navbar">
     <ul>
       <li>
-        <!--<img src="../../../src/assets/weather-images/weather_icon/100.png" alt="">-->
         <span class="city">
           <i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
           <span>{{ cityName }}</span>
@@ -10,6 +9,7 @@
       </li>
       <li><router-link to="/now">首页</router-link></li>
       <li><router-link to="/forecast">天气预报</router-link></li>
+      <li><router-link to="/city">城市天气</router-link></li>
     </ul>
 
     <router-view></router-view>
@@ -24,12 +24,18 @@
 
     data () {
       return {
-        cityName: this.$store.state.location.cityName
+        cityName: this.$store.state.location.cityName,
       }
     },
 
     mounted () {
       this.getCityName()
+    },
+
+    computed: {
+      cityName () {
+        return this.$store.getters.updatedCityName
+      }
     },
 
     methods: {

@@ -1,24 +1,7 @@
-@mixin flex {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: flex;
-  @content;
-}
-
-@mixin align-items($value) {
-  -webkit-align-items: $value;
-  -moz-align-items: $value;
-  align-items: $value;
-}
-
-@mixin justify-content($value) {
-  -webkit-justify-content: $value;
-  -moz-justify-content: $value;
-  justify-content: $value;
-}
+@import '../../assets/scss/_mixin.scss';
+@import '../../assets/scss/_variable.scss';
 
 .navbar {
-
   ul {
     @include flex {
       @include justify-content(center);
@@ -32,16 +15,7 @@
 
     &:first-child {
       @include flex;
-      color: #2d2c2c;
-
-      img {
-        width: 3em;
-        height: 3em;
-        position: absolute;
-        left: 38%;
-        top: -.75em;
-        color: #fff;
-      }
+      color: $location-color;
     }
 
     li {
@@ -49,16 +23,16 @@
       padding: 0 1rem;
 
       a {
-        color: #fff;
+        color: $default-font-color;
         text-decoration: none;
 
         &:hover {
           text-decoration: underline;
-          color: #b9aeae
+          color: $nav-hover-color;
         }
 
         &:active {
-          color: #fff;
+          color: $default-font-color;
         }
       }
     }

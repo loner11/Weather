@@ -5,7 +5,8 @@
 
 body {
   background: url(../weather-images/weather_background.jpg) no-repeat center fixed;
-  background-size: 100% 100%;
+  background-size: cover;
   -moz-background-size: cover;
   -webkit-background-size: cover;
+  font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 }

@@ -1,3 +1,5 @@
+@import './_variable.scss';
+//mixin
 @mixin box-shadow($value) {
   -webkit-box-shadow: $value;
   -moz-box-shadow: $value;
@@ -21,6 +23,12 @@
   @content;
 }
 
+@mixin flex-direction($value) {
+  -webkit-flex-direction: $value;
+  -moz-flex-direction: $value;
+  flex-direction: $value;
+}
+
 @mixin align-items($value) {
   -webkit-align-items: $value;
   -moz-align-items: $value;
@@ -31,4 +39,17 @@
   -webkit-justify-content: $value;
   -moz-justify-content: $value;
   justify-content: $value;
+}
+
+//media mixin
+@mixin ordinaryMedia {
+  @media only screen and (max-width: #{$ordinaryMedia-width}) {
+    @content;
+  }
+}
+
+@mixin smallMedia {
+  @media only screen and (max-width: #{$smallMedia-width}) {
+    @content;
+  }
 }
