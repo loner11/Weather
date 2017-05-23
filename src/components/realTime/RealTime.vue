@@ -40,10 +40,6 @@
             this.hourlyForecastData = this.weatherHourlyData[0].hourly_forecast
           })
       }
-    },
-
-    computed: {
-
     }
   }
 </script>

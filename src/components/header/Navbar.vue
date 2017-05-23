@@ -17,37 +17,16 @@
 </template>
 
 <script>
-  import Params from '../../store/api.js'
-
   export default {
     name: 'navbar',
 
-    data () {
-      return {
-        cityName: this.$store.state.location.cityName,
-      }
-    },
-
     mounted () {
-      this.getCityName()
+      this.$store.dispatch('getCityName')
     },
 
     computed: {
       cityName () {
-        return this.$store.getters.updatedCityName
-      }
-    },
-
-    methods: {
-      getCityName () {
-        this.axios.get(Params.params.LOCATION_CITY_URL)
-          .then(response => {
-            this.cityName = response.data.city
-            return this.$store.dispatch('getCityName', response.data.city)
-          })
-          .catch(error => {
-            console.log(error)
-          })
+        return this.$store.state.location.cityName
       }
     }
   }

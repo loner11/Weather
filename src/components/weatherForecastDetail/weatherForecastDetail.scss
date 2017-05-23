@@ -1,11 +1,12 @@
 @import '../../assets/scss/_variable.scss';
 @import '../../assets/scss/_mixin.scss';
 
-.forecast {
-  width: 40%;
-  height: 20em;
+.detail {
+  width: 60%;
+  height: 32em;
   margin: 2em auto;
   padding: 3em 2.5em;
+  color: $default-font-color;
   @include box-sizing(border-box);
 
   &:hover {
@@ -13,34 +14,33 @@
     @include translate3d(0, -2px, 0);
   }
 
-  a {
-    color: $anchor-font-color;
-    opacity: .6;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-      opacity: .9;
-    }
-  }
-
-  .forecast-list {
+  .forecast-detail {
+    border-bottom: 1px solid $border-bottom-color;
     @include flex {
       @include justify-content(space-between);
       @include align-items(center);
     }
-    margin: {
-      top: .25em;
-      bottom: 1.25em;
-    }
-    border-bottom: 1px solid $border-bottom-color;
-    font-weight: 400;
-    color: $default-font-color;
 
-    .cond {
+    .alltime {
       @include flex {
-        @include justify-content(space-between);
-        @include align-items(center);
+        @include flex-direction(column);
+      }
+    }
+
+    .daytime {
+      @include flex {
+        @include flex-direction(column);
+      }
+
+      img {
+        width: 3em;
+        height: 3em;
+      }
+    }
+
+    .night {
+      @include flex {
+        @include flex-direction(column);
       }
       img {
         width: 3em;

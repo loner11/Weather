@@ -6,6 +6,12 @@
   box-shadow: $value;
 }
 
+@mixin box-sizing($value) {
+  -webkit-box-sizing: $value;
+  -moz-box-sizing: $value;
+  box-sizing: $value;
+}
+
 @mixin transform($property) {
   -webkit-transform: $property;
   -moz-transform: $property;

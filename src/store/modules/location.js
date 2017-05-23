@@ -1,5 +1,8 @@
 import {LOCATION_CITY_NAME} from '../mutation_types'
 
+import axios from 'axios'
+import Params from '../../store/api.js'
+
 const state = {
   cityName: '北京'
 }
@@ -11,14 +14,17 @@ const getters = {
 }
 
 const mutations = {
-  [LOCATION_CITY_NAME] (state, name) {
+  [LOCATION_CITY_NAME] (state, {name}) {
     state.cityName = name
   }
 }
 
 const actions = {
-  getCityName ({commit}, name) {
-    commit('LOCATION_CITY_NAME', name)
+  getCityName ({commit}) {
+    axios.get(Params.params.LOCATION_CITY_URL)
+      .then(response => {
+        commit('LOCATION_CITY_NAME', {name: response.data.city})
+      })
   }
 }
 
