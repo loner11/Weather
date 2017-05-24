@@ -8,6 +8,19 @@
   padding: 3em 2.5em;
   @include box-sizing(border-box);
 
+  @include ordinaryMedia {
+    width: 60%;
+    margin: .5em auto;
+  }
+
+  @include xsmallMedia {
+    width: 90%;
+  }
+
+  @include smallMedia {
+    width: 96%;
+  }
+
   &:hover {
     @include box-shadow(0 3px 20px $box-shadow-color);
     @include translate3d(0, -2px, 0);
@@ -48,4 +61,12 @@
       }
     }
   }
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .8s;
+}
+
+.fade-enter, .fade-leave-active {
+  opacity: 0;
 }

@@ -54,6 +54,12 @@
   }
 }
 
+@mixin xsmallMedia {
+  @media only screen and (max-width: #{$x-smallMedia-width}) {
+    @content;
+  }
+}
+
 @mixin smallMedia {
   @media only screen and (max-width: #{$smallMedia-width}) {
     @content;

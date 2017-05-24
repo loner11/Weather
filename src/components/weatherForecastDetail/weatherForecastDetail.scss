@@ -2,12 +2,25 @@
 @import '../../assets/scss/_mixin.scss';
 
 .detail {
-  width: 60%;
-  height: 32em;
+  width: 40%;
+  height: 28em;
   margin: 2em auto;
   padding: 3em 2.5em;
   color: $default-font-color;
   @include box-sizing(border-box);
+
+  @include ordinaryMedia {
+    width: 60%;
+    margin: .5em auto;
+  }
+
+  @include xsmallMedia {
+    width: 90%;
+  }
+
+  @include smallMedia {
+    width: 96%;
+  }
 
   &:hover {
     @include box-shadow(0 3px 20px $box-shadow-color);
@@ -15,6 +28,7 @@
   }
 
   .forecast-detail {
+    padding: .25em 0;
     border-bottom: 1px solid $border-bottom-color;
     @include flex {
       @include justify-content(space-between);
@@ -27,25 +41,39 @@
       }
     }
 
-    .daytime {
+    .day-night {
+      margin: .5em;;
+      padding: .25em 1em;
       @include flex {
         @include flex-direction(column);
       }
 
-      img {
-        width: 3em;
-        height: 3em;
+      .daytime {
+        @include flex {
+          @include justify-content(space-between);
+          @include align-items(center);
+        }
+
+        .sun {
+          @include flex {
+            @include justify-content(space-between);
+            @include align-items(center);
+          }
+        }
+      }
+
+      .night {
+        @extend .daytime;
+
+        .moon {
+          @extend .sun;
+        }
       }
     }
 
-    .night {
-      @include flex {
-        @include flex-direction(column);
-      }
-      img {
-        width: 3em;
-        height: 3em;
-      }
+    img {
+      width:  3em;
+      height: 3em;
     }
   }
 }
