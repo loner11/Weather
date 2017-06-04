@@ -22,6 +22,12 @@
   @include transform(translate3d($val1, $val2, $val3));
 }
 
+@mixin transition($property, $duration) {
+  -webkit-transition: $property $duration;
+  -moz-transition: $property $duration;
+  transition: $property $duration;
+}
+
 @mixin flex {
   display: -webkit-flex;
   display: -moz-flex;

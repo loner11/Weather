@@ -1,5 +1,4 @@
-@import '../../assets/scss/_mixin.scss';
-@import '../../assets/scss/_variable.scss';
+@import '../../../assets/scss/_mixin.scss';
 
 .life {
   width: 40%;
@@ -18,8 +17,8 @@
 
   span {
     display: inline-block;
-    margin: .5em;
-    padding: .5em;
+    margin: .25em;
+    padding: .25em;
 
     i {
       margin-right: .5em;

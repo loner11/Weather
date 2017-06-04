@@ -9,7 +9,7 @@ import store from './store/store'
 
 import 'element-ui/lib/theme-default/index.css'
 import 'font-awesome/css/font-awesome.min.css'
-import '../src/assets/scss/style.scss'
+import '../src/assets/scss/app.scss'
 
 Vue.use(Element, VueAxios, axios)
 Vue.prototype.axios = axios

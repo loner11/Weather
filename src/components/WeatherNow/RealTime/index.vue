@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  import Params from '../../store/api.js'
+  import Params from '../../../store/api.js'
 
   export default {
     data () {
@@ -20,7 +20,7 @@
         weatherHourlyData: '',
         hourlyForecastData: '',
         param: 'hourly',
-        imageSrc: '../../../src/assets/weather-images/weather_icon/',
+        imageSrc: '../../../../src/assets/weather-images/weather_icon/',
       }
     },
 
@@ -43,7 +43,3 @@
     }
   }
 </script>
-
-<style lang="scss">
-  @import './realTime.scss';
-</style>

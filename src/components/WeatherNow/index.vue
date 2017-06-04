@@ -88,9 +88,3 @@
     }
   }
 </script>
-
-<style lang="scss">
-
-  @import './weatherNow.scss';
-
-</style>

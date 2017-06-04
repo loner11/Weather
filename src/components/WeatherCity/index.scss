@@ -1,0 +1,50 @@
+@import '../../assets/scss/_mixin.scss';
+
+.search {
+  width: 40%;
+  margin: 2em auto;
+  padding: 1em 2.5em;
+  color: $default-font-color;
+
+  @include flex {
+    @include justify-content(center);
+    @include align-items(center);
+  }
+
+  input {
+    outline: none;
+    color: $default-font-color;
+
+    &::moz-placeholder {
+      color: $default-font-color;
+    }
+
+    &::-webkit-input-placeholder {
+      color: $default-font-color;
+    }
+
+    &::-webkit-search-decoration, &::-webkit-search-cancel-button {
+      display: none;
+    }
+  }
+
+  input[type=search] {
+    @include box-sizing(content-box);
+    @include transition(all, .5s);
+    width: 5em;
+    border: solid 1px $input-border-color;
+    border-radius: 2em;
+    padding: .5em 1em .5em 2.5em;
+    font: {
+      family: inherit;
+      size: 100%;
+    }
+    background: url(../../assets/weather-images/search.png) no-repeat .75em center;
+
+    &:focus {
+      width: 10em;
+      @include box-shadow(0 3px 20px $box-shadow-color);
+      @include translate3d(0, -1px, 0);
+    }
+  }
+}

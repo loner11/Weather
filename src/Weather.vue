@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import Navbar from './components/header/Navbar.vue'
+  import Navbar from './components/Navbar/index.vue'
 
   export default {
     name: 'weather',
@@ -15,7 +15,3 @@
     }
   }
 </script>
-
-<style lang="scss">
-
-</style>

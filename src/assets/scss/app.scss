@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: url(../weather-images/weather_background.jpg) no-repeat center fixed;
+  background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+
+@import '../../components/Navbar/index.scss';
+@import '../../components/WeatherCity/index.scss';
+@import '../../components/WeatherForecast/index.scss';
+@import '../../components/WeatherForecast/WeatherForecastDetail/index.scss';
+@import '../../components/WeatherNow/index.scss';
+@import '../../components/WeatherNow/LifeIndex/index.scss';
+@import '../../components/WeatherNow/RealTime/index.scss';

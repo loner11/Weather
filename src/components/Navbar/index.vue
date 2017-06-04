@@ -32,9 +32,3 @@
   }
 
 </script>
-
-<style lang="scss">
-
-  @import './navbar.scss';
-
-</style>

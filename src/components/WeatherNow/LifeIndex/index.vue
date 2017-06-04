@@ -1,5 +1,5 @@
 <template>
-  <article class="life">
+  <article class="life" v-if="suggestion">
     <div class="left">
       <span><i class="fa fa-bolt fa-lg" aria-hidden="true"></i>气象指数 {{suggestion.air.brf}}</span>
       <span><i class="fa fa-heart-o fa-lg" aria-hidden="true"></i>舒适度指数 {{suggestion.comf.brf}}</span>
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-  import Params from '../../store/api.js'
+  import Params from '../../../store/api.js'
 
   export default {
     data () {
@@ -58,7 +58,3 @@
     }
   }
 </script>
-
-<style lang="scss">
-  @import './lifeIndex.scss';
-</style>

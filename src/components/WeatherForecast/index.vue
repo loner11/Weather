@@ -53,9 +53,3 @@
     }
   }
 </script>
-
-<style lang="scss">
-
-  @import './weatherForecast.scss';
-
-</style>

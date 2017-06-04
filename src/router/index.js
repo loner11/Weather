@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import WeatherNow from '../components/weatherNow/WeatherNow.vue'
-import WeatherForecast from '../components/weatherForecast/WeatherForecast.vue'
-import weatherForecastDetail from '../components/weatherForecastDetail/WeatherForecastDetail.vue'
-import WeatherCity from '../components/weatherCity/WeatherCity.vue'
-import RealTime from '../components/realTime/RealTime.vue'
-import LifeIndex from '../components/LifeIndex/LifeIndex.vue'
+import WeatherNow from '../components/weatherNow/index.vue'
+import WeatherForecast from '../components/weatherForecast/index.vue'
+import weatherForecastDetail from '../components/WeatherForecast/WeatherForecastDetail/index.vue'
+import WeatherCity from '../components/weatherCity/index.vue'
+import RealTime from '../components/WeatherNow/RealTime/index.vue'
+import LifeIndex from '../components/WeatherNow/LifeIndex/index.vue'
 
 Vue.use(VueRouter)
 
