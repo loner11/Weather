@@ -53,6 +53,9 @@ module.exports = {
     historyApiFallback: true,
     noInfo: false
   },
+  watchOptions: {
+    poll: true
+  },
   devtool: '#eval-source-map'
 }
 
