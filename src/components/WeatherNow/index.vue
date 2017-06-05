@@ -8,7 +8,7 @@
       </h3>
     </header>
 
-    <article id="current" class="current">
+    <article id="current" class="current" v-if="weatherNowData">
       <div class="current-top">
         <span>{{ basic.city }}</span>
         <span>{{ now.wind.dir }} {{ now.wind.sc }}</span>
@@ -19,7 +19,7 @@
           <img :src="imageSrc + now.cond.code + '.png'" :alt="now.cond.txt">
         </div>
         <div class="refresh">
-          <span id="refresh" @click="updateWeather()"><i class="fa fa-refresh fa-lg" aria-hidden="true"></i></span>
+          <span id="refresh" @click="updateCurrentWeather()"><i class="fa fa-refresh fa-lg" aria-hidden="true"></i></span>
           <span>{{basic.update.loc}}</span>
           <span>{{ now.cond.txt }}</span>
         </div>
@@ -36,52 +36,38 @@
 </template>
 
 <script>
-  import Params from '../../store/api.js'
-
   export default {
     data () {
       return {
-        weatherNowData: '',
-        basic: {
-          update: ''
+        cond: {
+          code: '999'
         },
-        now: {
-          cond: {
-            code: '999'
-          },
-          wind: ''
-        },
-        imageSrc: '../../../src/assets/weather-images/weather_icon/',
-        param: 'now'
+        wind: '',
+        imageSrc: '../../../src/assets/weather-images/weather_icon/'
       }
     },
 
     mounted () {
-      this.getNowData(this.$store.state.location.cityName)
+      this.$store.dispatch('getNowWeatherData', this.$store.state.location.cityName)
+    },
+
+    computed: {
+      weatherNowData () {
+        return this.$store.state.now.nowWeatherData
+      },
+
+      basic () {
+        return this.$store.state.now.nowWeatherData[0].basic
+      },
+
+      now () {
+        return this.$store.state.now.nowWeatherData[0].now
+      }
     },
 
     methods: {
-      getNowData (cityName) {
-        let api = Params.params.API
-        let city = Params.params.City
-        let key = Params.params.KEY
-
-        this.axios.get(api + this.param + city + cityName + key)
-          .then(response => {
-            this.weatherNowData = response.data.HeWeather5
-            this.basic = this.weatherNowData[0].basic
-            this.basic.update = this.basic.update
-            this.now = this.weatherNowData[0].now
-            this.now.cond = this.now.cond
-            this.now.wind = this.now.wind
-          })
-          .catch(error => {
-            console.log(error)
-          })
-      },
-
-      updateWeather () {
-        this.getNowData(this.$store.getters.updatedCityName)
+      updateCurrentWeather () {
+        this.$store.dispatch('getNowWeatherData', this.$store.getters.updatedCityName)
         this.weatherNowData === '' ? this.$message({message: '当前天气数据更新失败', type: 'error', duration: 1000})
          : this.$message({message: '当前天气数据更新成功', type: 'success', duration: 1000})
       }

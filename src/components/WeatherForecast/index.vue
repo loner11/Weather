@@ -37,8 +37,7 @@
           cond: {
             code_d: 999
           }
-        },
-        param: 'forecast'
+        }
       }
     },
 
