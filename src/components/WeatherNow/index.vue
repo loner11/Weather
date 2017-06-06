@@ -19,7 +19,7 @@
           <img :src="imageSrc + now.cond.code + '.png'" :alt="now.cond.txt">
         </div>
         <div class="refresh">
-          <span id="refresh" @click="updateCurrentWeather()"><i class="fa fa-refresh fa-lg" aria-hidden="true"></i></span>
+          <span id="refresh" @click="updateCurrentWeather()"><img src="../../../src/assets/weather-images/refresh.png" alt="refresh"></span>
           <span>{{basic.update.loc}}</span>
           <span>{{ now.cond.txt }}</span>
         </div>
@@ -42,7 +42,6 @@
         cond: {
           code: '999'
         },
-        wind: '',
         imageSrc: '../../../src/assets/weather-images/weather_icon/'
       }
     },
@@ -57,11 +56,11 @@
       },
 
       basic () {
-        return this.$store.state.now.nowWeatherData[0].basic
+        return this.$store.state.now.nowWeatherData[0]
       },
 
       now () {
-        return this.$store.state.now.nowWeatherData[0].now
+        return this.$store.state.now.nowWeatherData[1]
       }
     },
 

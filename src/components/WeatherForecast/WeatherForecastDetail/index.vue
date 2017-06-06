@@ -1,6 +1,6 @@
 <template>
   <article class="detail" v-if="weatherForecastData">
-    <div v-for="detail in weatherForecastData[0].daily_forecast">
+    <div v-for="detail in weatherForecastData">
       <section class="forecast-detail">
         <section class="alltime">
           <span>{{ detail.date }}</span>

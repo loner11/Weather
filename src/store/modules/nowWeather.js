@@ -26,7 +26,11 @@ const actions = {
     let key = Params.params.KEY
     axios.get(api + 'now' + city + cityName + key)
       .then(response => {
-        commit('NOW_WEATHER_DATA', {data: response.data.HeWeather5})
+        let tmp = response.data.HeWeather5
+        let weatherNowData = [
+          tmp[0].basic, tmp[0].now
+        ]
+        commit('NOW_WEATHER_DATA', {data: weatherNowData})
       })
       .catch(error => {
         console.log(error)

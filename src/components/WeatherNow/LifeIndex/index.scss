@@ -1,27 +1,53 @@
 @import '../../../assets/scss/_mixin.scss';
 
 .life {
-  width: 40%;
-  height: 16em;
+  width: 60%;
   margin: 2em auto;
   padding: 1.5em 2.5em;
   color: $default-font-color;
-  @include flex {
-    @include align-items(center);
+
+  @include xsmallMedia {
+    width: 90%;
   }
 
-  &:hover {
-    @include box-shadow(0 3px 20px $box-shadow-color);
-    @include translate3d(0, -2px, 0);
+  @include smallMedia {
+    width: 96%;
   }
 
-  span {
+  section {
     display: inline-block;
-    margin: .25em;
-    padding: .25em;
+    width: 30%;
+    margin: .5em;
+    opacity: .6;
 
-    i {
-      margin-right: .5em;
+    @include smallMedia {
+      width: 40%;
+    }
+
+    &:hover {
+      @include box-shadow(0 3px 20px $box-shadow-color);
+      @include translate3d(-2px, -5px, 0);
+      opacity: 1;
+    }
+
+    .suggestion-title {
+      @include flex {
+        @include justify-content(center);
+      }
+      margin-bottom: .5em;
+    }
+
+    .suggestion-content {
+      display: block;
+      overflow: scroll;
+      height: 6em;
+      padding: .5em;
+      border: 1px solid $border-bottom-color;
+      border-radius: 1em;
+
+      &:hover {
+        border: none;
+      }
     }
   }
 }

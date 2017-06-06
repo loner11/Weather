@@ -1,9 +1,9 @@
 <template>
   <div>
     <article class="forecast" v-if="weatherForecastData">
-      <router-link to='/forecast/detail'>更多 <i class="fa fa-angle-double-right" aria-hidden="true"></i></router-link>
+      <router-link to='/forecast/detail'>天气详情</router-link>
 
-      <div v-for="forecastList in weatherForecastData[0].daily_forecast">
+      <div v-for="forecastList in weatherForecastData">
         <section class="forecast-list">
             <span class="date">{{ forecastList.date.replace(/^\d{4}-/g, '') }}</span>
             <span class="cond">

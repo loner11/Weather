@@ -1,5 +1,5 @@
 <template>
-  <article class="realtime">
+  <article class="realtime" v-if="hourlyForecastData">
     <section class="time" v-for="hourlyForecast in hourlyForecastData">
       <span>{{hourlyForecast.date.replace(/\d{4}-\d{2}-\d{2}/g, '')}}</span>
       <span>
@@ -12,33 +12,20 @@
 </template>
 
 <script>
-  import Params from '../../../store/api.js'
-
   export default {
     data () {
       return {
-        weatherHourlyData: '',
-        hourlyForecastData: '',
-        param: 'hourly',
-        imageSrc: '../../../../src/assets/weather-images/weather_icon/',
+        imageSrc: '../../../../src/assets/weather-images/weather_icon/'
       }
     },
 
     mounted () {
-      this.getHourlyForecastData(this.$store.state.location.cityName)
+      this.$store.dispatch('getRealTimeData', this.$store.state.location.cityName)
     },
 
-    methods: {
-      getHourlyForecastData (cityName) {
-        let api = Params.params.API
-        let city = Params.params.City
-        let key = Params.params.KEY
-
-        this.axios.get(api + this.param + city + cityName + key)
-          .then(response => {
-            this.weatherHourlyData = response.data.HeWeather5
-            this.hourlyForecastData = this.weatherHourlyData[0].hourly_forecast
-          })
+    computed: {
+      hourlyForecastData () {
+        return this.$store.state.realTime.realTimeData
       }
     }
   }

@@ -26,7 +26,7 @@ const actions = {
     let key = Params.params.KEY
     axios.get(api + 'forecast' + city + cityName + key)
       .then(response => {
-        commit('FORECAST_WEATHER_DATA', {data: response.data.HeWeather5})
+        commit('FORECAST_WEATHER_DATA', {data: response.data.HeWeather5[0].daily_forecast})
       })
       .catch(error => {
         console.log(error)
