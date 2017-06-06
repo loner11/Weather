@@ -1,6 +1,6 @@
 <template>
-  <article class="realtime">
-    <section v-if="hourlyForecastData">
+  <article>
+    <article class="realtime" v-if="hourlyForecastData">
       <section class="time" v-for="hourlyForecast in hourlyForecastData">
         <span>{{hourlyForecast.date.replace(/\d{4}-\d{2}-\d{2}/g, '')}}</span>
         <span>
@@ -9,10 +9,10 @@
         </span>
         <span>{{hourlyForecast.tmp}}&deg;</span>
       </section>
-    </section>
-    <section v-if="hourlyForecastData == ''">
+    </article>
+    <article v-if="hourlyForecastData == ''">
       <span>该时段数据为空!!!</span>
-    </section>
+    </article>
   </article>
 </template>
 
